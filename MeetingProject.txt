@@ -1,0 +1,162 @@
+USE [MeetingProject]
+GO
+/****** Object:  Table [dbo].[Company]    Script Date: 16.02.2023 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Company](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_Company] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Experience]    Script Date: 16.02.2023 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Experience](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[StartDate] [date] NULL,
+	[EndDate] [date] NULL,
+	[NameExperience] [nvarchar](max) NULL,
+	[DescriptionExperience] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Experience] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[JobTitle]    Script Date: 16.02.2023 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[JobTitle](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](100) NULL,
+ CONSTRAINT [PK_JobTitle] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ManWithResume]    Script Date: 16.02.2023 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ManWithResume](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NULL,
+	[surname] [nvarchar](50) NULL,
+	[patronomic] [nvarchar](50) NULL,
+	[github] [nvarchar](150) NULL,
+	[number] [nvarchar](50) NULL,
+	[email] [nvarchar](50) NULL,
+	[telegram] [nvarchar](50) NULL,
+	[about] [nvarchar](50) NULL,
+	[BackgroundImage] [varbinary](max) NULL,
+	[ProfilePhoto] [varbinary](max) NULL,
+ CONSTRAINT [PK_ManWithResume] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ManWithResumeExperienceTable]    Script Date: 16.02.2023 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ManWithResumeExperienceTable](
+	[ExperienceId] [int] NOT NULL,
+	[ManWithResumeId] [int] NOT NULL,
+ CONSTRAINT [PK_ManWithResumeExperienceTable] PRIMARY KEY CLUSTERED 
+(
+	[ExperienceId] ASC,
+	[ManWithResumeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ManWithResumeJobTitleTable]    Script Date: 16.02.2023 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ManWithResumeJobTitleTable](
+	[JobTitleId] [int] NOT NULL,
+	[ManWithResumeId] [int] NOT NULL,
+ CONSTRAINT [PK_ManWithResumeJobTitleTable] PRIMARY KEY CLUSTERED 
+(
+	[ManWithResumeId] ASC,
+	[JobTitleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MyProject]    Script Date: 16.02.2023 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MyProject](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[title] [nvarchar](150) NULL,
+	[date] [date] NULL,
+	[MainPicture] [varbinary](max) NULL,
+	[text] [nvarchar](max) NULL,
+	[ManWithResumeId] [int] NULL,
+ CONSTRAINT [PK_MyProject] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PictureProject]    Script Date: 16.02.2023 15:09:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PictureProject](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[codeImage] [varbinary](max) NULL,
+	[MyProjectId] [int] NULL,
+ CONSTRAINT [PK_PictureProject] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[ManWithResumeExperienceTable]  WITH CHECK ADD  CONSTRAINT [FK_ManWithResumeExperienceTable_Experience] FOREIGN KEY([ExperienceId])
+REFERENCES [dbo].[Experience] ([id])
+GO
+ALTER TABLE [dbo].[ManWithResumeExperienceTable] CHECK CONSTRAINT [FK_ManWithResumeExperienceTable_Experience]
+GO
+ALTER TABLE [dbo].[ManWithResumeExperienceTable]  WITH CHECK ADD  CONSTRAINT [FK_ManWithResumeExperienceTable_ManWithResume] FOREIGN KEY([ManWithResumeId])
+REFERENCES [dbo].[ManWithResume] ([id])
+GO
+ALTER TABLE [dbo].[ManWithResumeExperienceTable] CHECK CONSTRAINT [FK_ManWithResumeExperienceTable_ManWithResume]
+GO
+ALTER TABLE [dbo].[ManWithResumeJobTitleTable]  WITH CHECK ADD  CONSTRAINT [FK_ManWithResumeJobTitleTable_JobTitle] FOREIGN KEY([JobTitleId])
+REFERENCES [dbo].[JobTitle] ([id])
+GO
+ALTER TABLE [dbo].[ManWithResumeJobTitleTable] CHECK CONSTRAINT [FK_ManWithResumeJobTitleTable_JobTitle]
+GO
+ALTER TABLE [dbo].[ManWithResumeJobTitleTable]  WITH CHECK ADD  CONSTRAINT [FK_ManWithResumeJobTitleTable_ManWithResume] FOREIGN KEY([ManWithResumeId])
+REFERENCES [dbo].[ManWithResume] ([id])
+GO
+ALTER TABLE [dbo].[ManWithResumeJobTitleTable] CHECK CONSTRAINT [FK_ManWithResumeJobTitleTable_ManWithResume]
+GO
+ALTER TABLE [dbo].[MyProject]  WITH CHECK ADD  CONSTRAINT [FK_MyProject_ManWithResume] FOREIGN KEY([ManWithResumeId])
+REFERENCES [dbo].[ManWithResume] ([id])
+GO
+ALTER TABLE [dbo].[MyProject] CHECK CONSTRAINT [FK_MyProject_ManWithResume]
+GO
+ALTER TABLE [dbo].[PictureProject]  WITH CHECK ADD  CONSTRAINT [FK_PictureProject_MyProject] FOREIGN KEY([MyProjectId])
+REFERENCES [dbo].[MyProject] ([id])
+GO
+ALTER TABLE [dbo].[PictureProject] CHECK CONSTRAINT [FK_PictureProject_MyProject]
+GO
