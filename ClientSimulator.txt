@@ -1,0 +1,90 @@
+USE [ClientSimulator]
+GO
+/****** Object:  Table [dbo].[Client]    Script Date: 20.02.2023 9:26:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Client](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Surname] [nvarchar](50) NULL,
+	[Patronymic] [nvarchar](50) NULL,
+	[Phone] [nvarchar](50) NULL,
+	[Email] [nvarchar](100) NULL,
+ CONSTRAINT [PK_Client] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Realtor]    Script Date: 20.02.2023 9:26:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Realtor](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Surname] [nvarchar](50) NULL,
+	[Patronymic] [nvarchar](50) NULL,
+	[DealShare] [float] NULL,
+ CONSTRAINT [PK_Realtor] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Client] ON 
+
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (2, N'Денисова', N'Олеся', N'Леонидовна', N'', N'dummy@email.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (3, N'Сафронов', N'Алексей', N'Вячеславович', N'', N'client@esoft.tech')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (4, N'Кудряшов', N'Александр', N'Витальевич', N'551988', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (5, N'Фёдоров', N'Алексей', N'Николаевич', N'', N'fedorov@mail.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (6, N'Пелымская', N'Светлана', N'Александровна', N'83452112233', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (7, N'Коновальчик', N'Татьяна', N'Геннадьевна', N'', N'dummy@email.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (8, N'Молоковская', N'Светлана', N'Михайловна', N'898489848', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (9, N'Моторина', N'Анастасия', N'Сергеевна', N'895159848', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (10, N'Поспелова', N'Ольга', N'Александровна', N'', N'angel@mail.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (11, N'Жиляков', N'Владимир', N'Владимирович', N'445588', N'445588@email.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (12, N'Ефремов', N'Владислав', N'Николаевич', N'', N'parampampam@mail.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (13, N'Баль', N'Валентина', N'Сергеевна', N'+7998888444', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (14, N'Стрелков', N'Артем', N'Николаевич', N'14234', N'test@test.test')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (15, N'Луканин', N'Павел', N'Валерьевич', N'', N'foo@bar.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (16, N'Шарипова', N'Эльвира', N'Закирчановна', N'12345678910', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (17, N'Фомина', N'Маргарита', N'Николаевна', N'', N'fomina@email.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (19, N'Пономарева', N'Елена', N'Сергеевна', N'', N'ponomareva@gmail.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (21, N'Шарипов', N'Рустам', N'Владимирович', N'', N'sharipov@yandex.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (23, N'Кручинин', N'Иван', N'Андреевич', N'', N'kruch@list.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (24, N'Алферов', N'Алексей', N'Николаевич', N'', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (25, N'Попов ', N'Алексей', N'Николаевич', N'+0489848565', N'popovan@bik.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (26, N'Неезжала', N'Наталья', N'Леонидовна', N'', N'neez@mail.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (31, N'цавыа', N'ываыв', N'аыва', N'+79510699153', N'dsfdsfd@mail.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (32, N'dfs', N'fsdfasd', N'fsadfs', N'8031293810924', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (33, N'asdas', N'dasd', N'asdasd', N'', N'sdas@mail.fv')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (35, N'ewrdsfsdf', N'sdfsdf', N'sdfsd', N'', N'sdf@mail.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (39, N'', N'', N'', N'891304855563', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (40, N'', N'', N'', N'', N'sdas@mail.ru')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (41, N'', N'', N'', N'893221239943', N'')
+INSERT [dbo].[Client] ([Id], [Name], [Surname], [Patronymic], [Phone], [Email]) VALUES (44, N'', N'', N'', N'+79213123123', N'')
+SET IDENTITY_INSERT [dbo].[Client] OFF
+SET IDENTITY_INSERT [dbo].[Realtor] ON 
+
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (1, N'Фахрутдинов', N'Роман', N'Рубинович', 20)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (2, N'Устинов', N'Максим', N'Алексеевич', 40)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (3, N'Сысоева', N'Людмила', N'Валентиновна', 45)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (4, N'Додонов', N'Илья', N'Геннадьевич', 45)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (5, N'Мухтаруллин', N'Руслан', N'Расыхович', 45)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (6, N'Мосеева', N'Любовь', N'Александровна', 0)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (7, N'Киселев', N'Алексей', N'Геннадьевич', 45)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (8, N'Клюйков', N'Евгений', N'Николаевич', 0)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (9, N'Жданова', N'Галина', N'Николаевна', 45)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (10, N'Басырова', N'Елена', N'Азатовна', 45)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (11, N'Швецов', N'Виталий', N'Олегович', 12)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (17, N'asd', N'asd', N'asd', 12)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (18, N'asd', N'asd', N'asd', 21)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (20, N'gdfgdf', N'adsdw', N'fdgdfg', 12.23)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (21, N'asda', N'sadsa', N'', 0)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (22, N'asdas', N'asdas', N'asdasd', 12.3)
+INSERT [dbo].[Realtor] ([Id], [Name], [Surname], [Patronymic], [DealShare]) VALUES (23, N'asdasd', N'asdasd', N'asdas', 3.5)
+SET IDENTITY_INSERT [dbo].[Realtor] OFF
